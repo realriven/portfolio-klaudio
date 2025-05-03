@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Installation and configuration for `shadcn/ui` for `Next.js`.
 
-## Getting Started
+### Create project
+Run the `init` command to create a new Next.js project or to setup an existing one:
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```terminal
+npx shadcn@latest init
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Add shadcn/ui Components
+This is the command to add specific components of the library
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```terminal
+npx shadcn@latest add [component]
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Tailwind
+This should be already configured properly in the most recent versions
 
-## Learn More
+### Aceternity UI
+This are the commonly used utilities for using Aceternity UI, start by installing the dependencies
 
-To learn more about Next.js, take a look at the following resources:
+```terminal
+npm i motion clsx tailwind-merge
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add `lib/utils.ts` file, even if this should be already present this is the code for it:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```ts
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-## Deploy on Vercel
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you're using Next.js 15 and React 19, you'll need to the following changes in order to use framer 
+motion (which is now motion), since motion is not compatible with React 19 yet.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+ "dependencies": {
+    "motion": "^12.0.0-alpha.1",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "^2.5.5"
+  },
+  "overrides": {
+    "motion": {
+      "react": "19.0.0-rc-66855b96-20241106",
+      "react-dom": "19.0.0-rc-66855b96-20241106"
+    }
+  },
+```
+
+Some cool components:
+
+```terminal
+npx shadcn@latest add https://ui.aceternity.com/registry/wavy-background.json
+```
