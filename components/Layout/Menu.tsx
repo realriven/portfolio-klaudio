@@ -51,36 +51,72 @@ export default function Menu() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        
+
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Projects & Works</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className={gridStyle}>
-              <ListItem href="/projects/engineering" title="Engineering">
-                Engineering and university projects
-              </ListItem>
-              <ListItem href="/projects/software" title="Software">
-                Web and software development work
-              </ListItem>
-              <ListItem href="/projects/teaching" title="Teaching">
-                Teaching and educational projects
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        
-        <NavigationMenuItem>
-          <Link href="/career" legacyBehavior passHref>
+          <Link href="/about" legacyBehavior passHref>
             <NavigationMenuLink className={linkStyle}>
-              Career
+              About
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Link href="/contacts" legacyBehavior passHref>
+          <Link href="/experience" legacyBehavior passHref>
             <NavigationMenuLink className={linkStyle}>
-              Contact me
+              Experience
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className={gridStyle}>
+              <ListItem href="/projects/engineering" title="Engineering">
+                CFD, FEM, and technical engineering projects
+              </ListItem>
+              <ListItem href="/projects/software" title="Software">
+                Web applications and software development
+              </ListItem>
+              <ListItem href="/projects/teaching" title="Teaching">
+                Educational content and tutoring work
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <Link href="/skills" legacyBehavior passHref>
+            <NavigationMenuLink className={linkStyle}>
+              Skills
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Interests</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className={gridStyle}>
+              <ListItem href="/interests/cinema" title="Cinema & Film">
+                Movie reviews, analysis, and favorites
+              </ListItem>
+              <ListItem href="/interests/music" title="Music">
+                Playlists, discoveries, and musical journey
+              </ListItem>
+              <ListItem href="/interests/tv-series" title="TV Series">
+                Binge-watching and series recommendations
+              </ListItem>
+              <ListItem href="/interests/gaming" title="Gaming">
+                Video game experiences and reviews
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <Link href="/contact" legacyBehavior passHref>
+            <NavigationMenuLink className={linkStyle}>
+              Contact
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
